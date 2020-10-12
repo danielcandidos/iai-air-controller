@@ -37,7 +37,7 @@ export default function App() {
   const [voltage, setVoltage] = useState('no timestamp yet');
 
   useEffect(() => {
-    const socket = openSocket('http://api.sma.flavindias.com.br/', {transports: ['websocket', 'polling', 'flashsocket']});
+    const socket = openSocket('https://api.sma.flavindias.com.br/');
     socket.on("ufpe/cin/in1116/2020/devices/air_conditioner", data => console.log(data));
   });
 
@@ -70,9 +70,9 @@ export default function App() {
                   </Grid>
                 </Grid>
               </CardContent>
-              {/* <CardActions>
-                <Button size="small">Learn More</Button>
-              </CardActions> */}
+              <CardActions>
+                <Button size="small" variant="contained" color="primary">Turn off</Button>
+              </CardActions>
             </Card>
           </ListItem>
         )})}
